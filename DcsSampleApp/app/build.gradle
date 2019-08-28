@@ -44,7 +44,7 @@ android {
             // 定位授权与签名SHA1对应，必须使用release签名
             signingConfig signingConfigs.release
             // 干预打包，防止以下类发生:NoClassDefFoundError crash
-            multiDexKeepFile file('multidex-config.txt')
+//            multiDexKeepFile file('multidex-config.txt')
         }
         release {
             minifyEnabled rootProject.ext.releaseMinifyEnabled
@@ -52,7 +52,7 @@ android {
             // 定位授权与签名SHA1对应，必须使用release签名
             signingConfig signingConfigs.release
             // 干预打包，防止以下类发生:NoClassDefFoundError crash
-            multiDexKeepFile file('multidex-config.txt')
+//            multiDexKeepFile file('multidex-config.txt')
         }
     }
     sourceSets {
@@ -83,27 +83,27 @@ repositories {
     }
 }
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:support-annotations:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.3.0'
-    compile 'com.android.support:design:25.3.0'
+    implementation 'com.android.support:support-annotations:25.3.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:25.3.0'
+    implementation 'com.android.support:design:25.3.0'
 
     // 百度url音频播放器
-    compile name: 'bdplayer-release', ext: 'aar'
+    implementation name: 'bdplayer-release', ext: 'aar'
     // 定位
-    compile project(':location')
+    implementation project(':location')
     // 可选-------
 
     def jacksonVersion = '2.9.1'
-    compile "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
-    compile "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
-    compile "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
 
-    compile 'com.android.support:multidex:1.0.3'
+    implementation 'com.android.support:multidex:1.0.3'
 
 }
